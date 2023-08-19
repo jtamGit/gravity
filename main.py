@@ -1,3 +1,5 @@
+data = 0
+
 def on_gesture_screen_up():
     global data
     data = 4
@@ -28,11 +30,6 @@ def on_gesture_logo_down():
     data = 6
 input.on_gesture(Gesture.LOGO_DOWN, on_gesture_logo_down)
 
-data = 0
-serial.redirect_to_usb()
-serial.redirect(SerialPin.USB_TX, SerialPin.USB_RX, BaudRate.BAUD_RATE57600)
-
 def on_forever():
-    serial.write_number(data)
-    basic.pause(100)
+    pass
 basic.forever(on_forever)
